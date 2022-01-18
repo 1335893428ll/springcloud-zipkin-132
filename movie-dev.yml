@@ -4,7 +4,14 @@ server:
 spring:
   application:
     name: microservice-movie
-
+  zipkin:
+    base-url: http://192.168.198.1:9041
+    sender:
+      type: web #给zipkin发送信息的sender类型是web服务器而不是rabbitmq
+  # 100%跟踪采样
+  sleuth:
+    sampler:
+      probability: 1
 # eureka客户端向eureka服务器注册
 eureka:
   client:
